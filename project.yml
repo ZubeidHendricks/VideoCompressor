@@ -42,3 +42,26 @@ targets:
         SWIFT_VERSION: "5.0"
         GENERATE_INFOPLIST_FILE: NO
         CODE_SIGN_STYLE: Automatic
+
+  VideoCompressorTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - Tests
+      - path: Sources/CompressService.swift
+    settings:
+      base:
+        PRODUCT_NAME: VideoCompressorTests
+        PRODUCT_BUNDLE_IDENTIFIER: com.zubeid.videocompressor.tests
+        GENERATE_INFOPLIST_FILE: YES
+        TARGETED_DEVICE_FAMILY: "1"
+        SWIFT_VERSION: "5.0"
+
+schemes:
+  Tests:
+    build:
+      targets:
+        VideoCompressorTests: [test]
+    test:
+      targets:
+        - VideoCompressorTests
